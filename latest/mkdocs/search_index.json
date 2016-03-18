@@ -1,0 +1,29 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Contributing\n\n\n\n\nContribute by pull requests\n\n\nThe BioJulia pull request lifecycle", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/#contributing", 
+            "text": "Contribute by pull requests  The BioJulia pull request lifecycle", 
+            "title": "Contributing"
+        }, 
+        {
+            "location": "/pullrequests/", 
+            "text": "Contribute by pull requests\n\n\nWe welcome contributions in the form of pull requests. For more information on how to do a pull request, please refer to the tutorials section of this doumentation.\n\n\nBefore you start to work on your fix or addition to a BioJulia repository we recommend that you make your pull request early. This allows better collaboration with others, exchange of ideas, more code contributions from others (taking the pressure off you!), and better overall code as a result.\n\n\n\n\nThe BioJulia pull request lifecycle\n\n\nPull Requests on BioJulia repositories go through several stages, and these stages are indicated by the following labels. You should use these labels to help let others know how far your are along with your work :)\n\n\n     Label |                                                                                                             Meaning\n\n\n\n\n\n-------------: | ------------------------------------------------------------------------------------------------------------------:\nstage: planing |                                    You're planning. Figuring out the best way to code something or discussing ideas\n    stage: WIP |                                                                   You're coding or writing, actively working on it.\n    stage: RTR | You're finished, and want others to review the work and see if it is ready to be accepted and merged into BioJulia.", 
+            "title": "Pull Requests"
+        }, 
+        {
+            "location": "/pullrequests/#contribute-by-pull-requests", 
+            "text": "We welcome contributions in the form of pull requests. For more information on how to do a pull request, please refer to the tutorials section of this doumentation.  Before you start to work on your fix or addition to a BioJulia repository we recommend that you make your pull request early. This allows better collaboration with others, exchange of ideas, more code contributions from others (taking the pressure off you!), and better overall code as a result.", 
+            "title": "Contribute by pull requests"
+        }, 
+        {
+            "location": "/pullrequests/#the-biojulia-pull-request-lifecycle", 
+            "text": "Pull Requests on BioJulia repositories go through several stages, and these stages are indicated by the following labels. You should use these labels to help let others know how far your are along with your work :)       Label |                                                                                                             Meaning  -------------: | ------------------------------------------------------------------------------------------------------------------:\nstage: planing |                                    You're planning. Figuring out the best way to code something or discussing ideas\n    stage: WIP |                                                                   You're coding or writing, actively working on it.\n    stage: RTR | You're finished, and want others to review the work and see if it is ready to be accepted and merged into BioJulia.", 
+            "title": "The BioJulia pull request lifecycle"
+        }
+    ]
+}
