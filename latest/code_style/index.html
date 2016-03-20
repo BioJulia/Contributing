@@ -299,8 +299,21 @@
 <p>Generally try to keep lines below 80-columns, unless splitting a long line   onto multiple lines makes it harder to read.</p>
 </li>
 <li>
-<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:   <code>julia module AwesomeFeatures        using IntervalsTrees, JSON        include("feature1.jl") include("feature2.jl")        end</code></p>
+<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:</p>
 </li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">AwesomeFeatures</span>
+
+<span class="k">using</span> <span class="n">IntervalsTrees</span><span class="p">,</span> <span class="n">JSON</span>
+
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;feature1.jl&quot;</span><span class="p">)</span>
+<span class="n">include</span><span class="p">(</span><span class="s">&quot;feature2.jl&quot;</span><span class="p">)</span>
+
+<span class="k">end</span>
+</pre></div>
+
+
+<ul>
 <li>
 <p>Files that declare modules should have the same name name of the module.   E.g the module <code>SomeModule</code> is declared under the file <code>SomeModule.jl</code>.</p>
 </li>
