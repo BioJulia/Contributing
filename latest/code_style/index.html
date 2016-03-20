@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Code Style - Contributing to BioJulia</title>
+        <title>The BioJulia Code and Package Guidelines - Contributing to BioJulia</title>
       
       
       
@@ -103,7 +103,7 @@
             
           </span>
         
-        Code Style
+        The BioJulia Code and Package Guidelines
       </div>
     </div>
     
@@ -137,7 +137,7 @@
       <div class="drawer">
         <nav aria-label="Navigation">
   
-  <a href="https://github.com/BioJulia/Contributing" class="project">
+  <a href="https://github.com/BioJulia/Contributing/" class="project">
     <div class="banner">
       
       <div class="name">
@@ -191,13 +191,23 @@
       
         
   <li>
-    <a class="current" title="Code Style" href="./">
-      Code Style
+    <a class="current" title="The BioJulia Code and Package Guidelines" href="./">
+      The BioJulia Code and Package Guidelines
     </a>
     
       
         
       
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Requirements for BioJulia packages" href="#requirements-for-biojulia-packages">
+                Requirements for BioJulia packages
+              </a>
+            </li>
+          
+        </ul>
       
     
   </li>
@@ -244,8 +254,59 @@
       <article class="article">
         <div class="wrapper">
           
-          <p><a id='code-style-guide'></a></p>
-<h1 id="code-style-guide">Code Style Guide</h1>
+          <p><a id='BioJulia-package-and-code-guidelines-1'></a></p>
+<h1 id="biojulia-package-and-code-guidelines">BioJulia package and code guidelines</h1>
+<p><a id='Requirements-for-BioJulia-packages-1'></a></p>
+<h2 id="requirements-for-biojulia-packages">Requirements for BioJulia packages</h2>
+<p>We enforce the following requirements in our packages.</p>
+<ol>
+<li>
+<p>Types and functions must be documented using Julia's <a href="http://docs.julialang.org/en/latest/manual/documentation/">docstrings</a>.    Documentation regarding specific implementation details that aren't relevant    to users should be in the form of comments.        Documentation may be omitted if the function is not exported    (i.e. only used internally) and is short and obvious. E.g. <code>cube(x) = x^3</code>.    However, we do recommend documenting it anyway, to help out fellow julia    coders and biologists when they are reading and understanding the code,    and we are trying to make BioJulia packages as easy as possible to use,    understand, and code on for everyone :)</p>
+</li>
+<li>
+<p>In addition to documenting code in the source files through docstrings,    we encourage contributers to create documentation which is more akin to    a manual, complete with comprehensive explanations and examples of how     to use the package.        We use Lapidary.jl and mkdocs, to generate such documentation    and host it on the web.    The source markdown files for such manuals are kept in the <code>docs/src/man</code>    folder of each BioJulia package/repository.    </p>
+</li>
+<li>All significant code must be tested.    Tests should be organized into contexts, and into separate files based on     module.    Files for tests for a module go into an appropriately named    folder, within the <code>test</code> folder in the Bio.jl git repo. E.g. tests    for the Seq module of Bio.jl go in the <code>test/seq</code> folder of the Bio.jl     package.    </li>
+<li>
+<p>All code contributed should be compatible with the latest stable version of     Julia.     ## Style requirements for code</p>
+</li>
+<li>
+<p>Indent with 4 spaces.</p>
+</li>
+<li>
+<p>Type names are camel case, with the first letter capitalized. E.g. <code>SomeVeryUsefulType</code>.</p>
+</li>
+<li>
+<p>Module names are also camel case.</p>
+</li>
+<li>
+<p>Function names, apart from constructors, are all lowercase.   Include underscores between words only if the name would be hard    to read without.   E.g.  <code>start</code>, <code>stop</code>, <code>findletter</code> <code>find_last_digit</code>.</p>
+</li>
+<li>
+<p>Generally try to keep lines below 80-columns, unless splitting a long line   onto multiple lines makes it harder to read.</p>
+</li>
+<li>
+<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:      <code>julia   module AwesomeFeatures      using IntervalsTrees, JSON      include("feature1.jl")   include("feature2.jl")      end</code></p>
+</li>
+<li>
+<p>Files that declare modules should have the same name name of the module.   E.g the module <code>SomeModule</code> is declared under the file <code>SomeModule.jl</code>.</p>
+</li>
+<li>
+<p>Separate logical blocks of code with one blank line,   or two blank lines for function/type definitions.</p>
+</li>
+<li>
+<p>When extending method definitions, explicitly import the method.</p>
+</li>
+</ol>
+<p><code>julia   import Base: start, next, done</code></p>
+<ul>
+<li>Document functions using bare docstrings before a definition:</li>
+</ul>
+<p><code>julia   "This function foo's something"   foo(x) = 2*x</code></p>
+<ul>
+<li>Functions that get or set variables in a type should not be   prefixed with 'get' or 'set'.   The getter should be named for the variable it sets, and the setter   should have the same name as the getter, with the suffix <code>!</code>.   For exmaple, for the variable <code>names</code>:</li>
+</ul>
+<p><code>julia   name(node) # get node name   name!(node, "somename") # set node name</code></p>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 The BioJulia Organisation &ndash;
