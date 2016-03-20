@@ -27,8 +27,8 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../None">
+    <link rel="icon" type="image/x-icon" href="../None">
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -45,7 +45,7 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="../assets/stylesheets/application-20d5debb47.css">
+    <link rel="stylesheet" href="../assets/stylesheets/application-54f87043f3.css">
     
       <link rel="stylesheet" href="../assets/stylesheets/palettes-05ab2406df.css">
     
@@ -141,7 +141,12 @@
     <div class="banner">
       
       <div class="name">
-        <strong>Contributing to BioJulia </strong>
+        <strong>
+          Contributing to BioJulia
+          <span class="version">
+            
+          </span>
+        </strong>
         
       </div>
     </div>
@@ -207,6 +212,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Style requirements for code" href="#style-requirements-for-code">
+                Style requirements for code
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -267,9 +278,11 @@
 <p>In addition to documenting code in the source files through docstrings,    we encourage contributers to create documentation which is more akin to    a manual, complete with comprehensive explanations and examples of how     to use the package.        We use Lapidary.jl and mkdocs, to generate such documentation    and host it on the web.    The source markdown files for such manuals are kept in the <code>docs/src/man</code>    folder of each BioJulia package/repository.    </p>
 </li>
 <li>All significant code must be tested.    Tests should be organized into contexts, and into separate files based on     module.    Files for tests for a module go into an appropriately named    folder, within the <code>test</code> folder in the Bio.jl git repo. E.g. tests    for the Seq module of Bio.jl go in the <code>test/seq</code> folder of the Bio.jl     package.    </li>
-<li>
-<p>All code contributed should be compatible with the latest stable version of     Julia.     ## Style requirements for code</p>
-</li>
+<li>All code contributed should be compatible with the latest stable version of     Julia.</li>
+</ol>
+<p><a id='Style-requirements-for-code-1'></a></p>
+<h2 id="style-requirements-for-code">Style requirements for code</h2>
+<ul>
 <li>
 <p>Indent with 4 spaces.</p>
 </li>
@@ -286,7 +299,7 @@
 <p>Generally try to keep lines below 80-columns, unless splitting a long line   onto multiple lines makes it harder to read.</p>
 </li>
 <li>
-<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:      <code>julia   module AwesomeFeatures      using IntervalsTrees, JSON      include("feature1.jl")   include("feature2.jl")      end</code></p>
+<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:          <code>julia       module AwesomeFeatures              using IntervalsTrees, JSON              include("feature1.jl")       include("feature2.jl")              end</code></p>
 </li>
 <li>
 <p>Files that declare modules should have the same name name of the module.   E.g the module <code>SomeModule</code> is declared under the file <code>SomeModule.jl</code>.</p>
@@ -297,16 +310,31 @@
 <li>
 <p>When extending method definitions, explicitly import the method.</p>
 </li>
-</ol>
-<p><code>julia   import Base: start, next, done</code></p>
+</ul>
+<div class="codehilite"><pre><span></span>  <span class="sb">``</span><span class="err">`</span><span class="n">julia</span>
+  <span class="kn">import</span> <span class="nn">Base</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="nb">next</span><span class="p">,</span> <span class="n">done</span>
+  <span class="sb">``</span><span class="err">`</span>
+</pre></div>
+
+
 <ul>
 <li>Document functions using bare docstrings before a definition:</li>
 </ul>
-<p><code>julia   "This function foo's something"   foo(x) = 2*x</code></p>
+<div class="codehilite"><pre><span></span>  ```julia
+  &quot;This function foo&#39;s something&quot;
+  foo(x) = 2*x
+  ```
+</pre></div>
+
+
 <ul>
 <li>Functions that get or set variables in a type should not be   prefixed with 'get' or 'set'.   The getter should be named for the variable it sets, and the setter   should have the same name as the getter, with the suffix <code>!</code>.   For exmaple, for the variable <code>names</code>:</li>
 </ul>
-<p><code>julia   name(node) # get node name   name!(node, "somename") # set node name</code></p>
+<div class="codehilite"><pre><span></span>  ```julia
+  name(node) # get node name
+  name!(node, &quot;somename&quot;) # set node name
+  ```
+</pre></div>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 The BioJulia Organisation &ndash;
