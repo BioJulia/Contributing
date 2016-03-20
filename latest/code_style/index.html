@@ -299,7 +299,7 @@
 <p>Generally try to keep lines below 80-columns, unless splitting a long line   onto multiple lines makes it harder to read.</p>
 </li>
 <li>
-<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:      <code>julia   module AwesomeFeatures          using IntervalsTrees, JSON          include("feature1.jl")   include("feature2.jl")          end</code></p>
+<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.:   <code>julia module AwesomeFeatures        using IntervalsTrees, JSON        include("feature1.jl") include("feature2.jl")        end</code></p>
 </li>
 <li>
 <p>Files that declare modules should have the same name name of the module.   E.g the module <code>SomeModule</code> is declared under the file <code>SomeModule.jl</code>.</p>
@@ -311,15 +311,24 @@
 <p>When extending method definitions, explicitly import the method.</p>
 </li>
 </ul>
-<p><code>julia   import Base: start, next, done</code></p>
+<div class="codehilite"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="n">next</span><span class="p">,</span> <span class="n">done</span>
+</pre></div>
+
+
 <ul>
 <li>Document functions using bare docstrings before a definition:</li>
 </ul>
-<p><code>julia   "This function foo's something"   foo(x) = 2*x</code></p>
+<div class="codehilite"><pre><span></span><span class="s">&quot;This function foo&#39;s something&quot;</span>
+<span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+</pre></div>
+
+
 <ul>
 <li>Functions that get or set variables in a type should not be   prefixed with 'get' or 'set'.   The getter should be named for the variable it sets, and the setter   should have the same name as the getter, with the suffix <code>!</code>.   For exmaple, for the variable <code>names</code>:</li>
 </ul>
-<p><code>julia   name(node) # get node name   name!(node, "somename") # set node name</code></p>
+<div class="codehilite"><pre><span></span><span class="n">name</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c"># get node name</span>
+<span class="n">name!</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s">&quot;somename&quot;</span><span class="p">)</span> <span class="c"># set node name</span>
+</pre></div>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 The BioJulia Organisation &ndash;
