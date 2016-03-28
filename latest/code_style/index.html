@@ -321,27 +321,30 @@
 <p>Separate logical blocks of code with one blank line,   or two blank lines for function/type definitions.</p>
 </li>
 <li>
-<p>When extending method definitions, explicitly import the method.</p>
+<p>When extending method definitions, define the methods with a module name prefix. E.g.</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">import</span> <span class="n">Base</span><span class="p">:</span> <span class="n">start</span><span class="p">,</span> <span class="n">next</span><span class="p">,</span> <span class="n">done</span>
+<div class="codehilite"><pre><span></span><span class="k">function</span><span class="nf"> Base</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">iter</span><span class="p">::</span><span class="n">YourType</span><span class="p">)</span>
+  <span class="o">...</span>
+<span class="k">end</span>
+
+<span class="n">Base</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="n">iter</span><span class="p">::</span><span class="n">YourType</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span>
+ <span class="sb">``</span><span class="err">`</span>
+
+<span class="o">*</span> <span class="n">Document</span> <span class="n">functions</span> <span class="k">using</span> <span class="n">bare</span> <span class="n">docstrings</span> <span class="n">before</span> <span class="n">a</span> <span class="n">definition</span><span class="p">:</span>
 </pre></div>
 
 
-<ul>
-<li>Document functions using bare docstrings before a definition:</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="s">&quot;This function foo&#39;s something&quot;</span>
-<span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<p>julia "This function foo's something" foo(x) = 2*x</p>
+<div class="codehilite"><pre><span></span>* Functions that get or set variables in a type should not be
+  prefixed with &#39;get&#39; or &#39;set&#39;.
+  The getter should be named for the variable it sets, and the setter
+  should have the same name as the getter, with the suffix `!`.
+  For exmaple, for the variable `names`:
 </pre></div>
 
 
-<ul>
-<li>Functions that get or set variables in a type should not be   prefixed with 'get' or 'set'.   The getter should be named for the variable it sets, and the setter   should have the same name as the getter, with the suffix <code>!</code>.   For exmaple, for the variable <code>names</code>:</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="n">name</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c"># get node name</span>
-<span class="n">name!</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s">&quot;somename&quot;</span><span class="p">)</span> <span class="c"># set node name</span>
-</pre></div>
+<p>julia name(node) # get node name name!(node, "somename") # set node name ```</p>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 The BioJulia Organisation &ndash;
