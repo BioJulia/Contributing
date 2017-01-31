@@ -116,7 +116,8 @@
 <p>In addition to documenting code in the source files through docstrings,    we encourage contributers to create documentation which is more akin to    a manual, complete with comprehensive explanations and examples of how     to use the package.        We use Documenter.jl and mkdocs, to generate such documentation    and host it on the web.    The source markdown files for such manuals are kept in the <code>docs/src/man</code>    folder of each BioJulia package/repository.    </p>
 </li>
 <li>All significant code must be tested.    Tests should be organized into contexts, and into separate files based on     module.    Files for tests for a module go into an appropriately named    folder, within the <code>test</code> folder in the Bio.jl git repo. E.g. tests    for the Seq module of Bio.jl go in the <code>test/seq</code> folder of the Bio.jl     package.    </li>
-<li>All code contributed should be compatible with the latest stable version of     Julia.</li>
+<li>All code contributed should be compatible with the latest stable version of     Julia.    </li>
+<li>If your contribution to a BioJulia package introduces a method which is    shared among submodules, they should be declared in the top level module,    and then extended by the submodules. For example, in Bio.jl, the method    <code>seqname</code> was defined in <code>Bio.Seq</code> and overloaded by <code>Bio.Intervals</code>     and <code>Bio.Align</code>. Therefore the declaration of the method was moved to <code>Bio</code>,    and the three submodules extend the declared method.</li>
 </ol>
 <p><a id='Style-requirements-for-code-1'></a></p>
 <h2 id="style-requirements-for-code">Style requirements for code</h2>
@@ -168,11 +169,11 @@
 <p>When extending method definitions, define the methods with a module name prefix. E.g.</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">function</span><span class="nf"> Base</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">iter</span><span class="p">::</span><span class="n">YourType</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">iter</span><span class="o">::</span><span class="n">YourType</span><span class="p">)</span>
   <span class="o">...</span>
 <span class="k">end</span>
 
-<span class="n">Base</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="n">iter</span><span class="p">::</span><span class="n">YourType</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span>
+<span class="n">Base</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="n">iter</span><span class="o">::</span><span class="n">YourType</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span>
 </pre></div>
 
 
