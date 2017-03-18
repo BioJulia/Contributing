@@ -80,6 +80,7 @@
                         </a>
                     </li>
                 
+                <li><a href="https://biojulia.github.io">BioJulia Home</a></li>
             </ul>
         </div>
     </div>
@@ -97,6 +98,15 @@
         
             <li class="second-level"><a href="#style-requirements-for-code">Style requirements for code</a></li>
             
+        
+    
+        <li class="first-level "><a href="#the-above-code-is-more-statement-like-with-two-return-statements-and-so-is-more-readable-as-a-if-else-block">The above code is more statement-like, with two return statements #and so is more readable as a if-else block:</a></li>
+        
+    
+        <li class="first-level "><a href="#however">However,</a></li>
+        
+    
+        <li class="first-level "><a href="#returns-one-of-two-expression-values-it-is-more-expression-like-and-so-using-a-ternary-operator-is-perfectly-readable-and-is-aceptable-in-biojulia-code">Returns one of two expression values; it is more expression-like #and so using a ternary operator is perfectly readable, and is #aceptable in BioJulia code. ```</a></li>
         
     
     </ul>
@@ -190,7 +200,17 @@
 </ul>
 <div class="codehilite"><pre><span></span><span class="n">name</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c"># get node name</span>
 <span class="n">name!</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s">&quot;somename&quot;</span><span class="p">)</span> <span class="c"># set node name</span>
-</pre></div></div>
+</pre></div>
+
+
+<ul>
+<li>When using conditional branching, if code is statement-like, an   if-else block should be used. However if the code is expression-like   then julia's ternary operator should be used. E.g.   ```julia matches == sketchlen ? (return 1.0) : return matches / (2 * sketchlen - matches)</li>
+</ul>
+<h1 id="the-above-code-is-more-statement-like-with-two-return-statements-and-so-is-more-readable-as-a-if-else-block">The above code is more statement-like, with two return statements #and so is more readable as a if-else block:</h1>
+<p>if matches == sketchlin     return 1.0 else     return matches / (2 * sketchlen - matches) end</p>
+<h1 id="however">However,</h1>
+<p>x == y ? '|' : ' '</p>
+<h1 id="returns-one-of-two-expression-values-it-is-more-expression-like-and-so-using-a-ternary-operator-is-perfectly-readable-and-is-aceptable-in-biojulia-code">Returns one of two expression values; it is more expression-like #and so using a ternary operator is perfectly readable, and is #aceptable in BioJulia code. ```</h1></div>
         
     </div>
 
