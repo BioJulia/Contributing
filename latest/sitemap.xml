@@ -28,7 +28,19 @@
     
         
     <url>
+     <loc>https://biojulia.github.io/Contributing//policy/biojulia_organisation/</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>https://biojulia.github.io/Contributing//policy/contributor_covenant/</loc>
+     <lastmod>2017-04-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://biojulia.github.io/Contributing//policy/incident_response/</loc>
      <lastmod>2017-04-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
