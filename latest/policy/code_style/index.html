@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html class="no-js">
+<html lang="en" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.5.5">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
     
     
       
@@ -28,7 +28,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-b1a1975878.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
       
     
     
@@ -95,7 +95,7 @@
           <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
           
 <div class="md-search" data-md-component="search">
-  <div class="md-search__overlay"></div>
+  <label class="md-search__overlay" for="search"></label>
   <div class="md-search__inner">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
@@ -291,35 +291,12 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
+      
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Code Style
-      </label>
     
     <a href="./" title="Code Style" class="md-nav__link md-nav__link--active">
       Code Style
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#style-requirements-for-code" title="Style requirements for code" class="md-nav__link">
-    Style requirements for code
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -379,20 +356,8 @@
 <nav class="md-nav md-nav--secondary">
   
   
+    
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#style-requirements-for-code" title="Style requirements for code" class="md-nav__link">
-    Style requirements for code
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
   
 </nav>
                   </div>
@@ -407,104 +372,86 @@
                   <a href="https://github.com/BioJulia/Contributing/edit/master/docs/policy/code_style.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                  <h1>Code Style</h1>
-                
                 <p><a id='Style-requirements-for-code-1'></a></p>
 <h2 id="style-requirements-for-code">Style requirements for code</h2>
 <ul>
-<li>
-<p>Source code files should have the following style of header:   <code># Title   # =====   #   # Short description.   #   # [Long description (optional)]   #   # This file is a part of BioJulia. License is MIT: &lt;link to the license file&gt;</code></p>
-</li>
-<li>
-<p>Indent with 4 spaces.</p>
-</li>
-<li>
-<p>When returning values from a function, use an explicit <code>return</code> statement. Be aware that functions in julia return the   the result of the last statement in the function.</p>
-</li>
-<li>
-<p>Type names are camel case, with the first letter capitalized. E.g. <code>SomeVeryUsefulType</code>.</p>
-</li>
-<li>
-<p>Module names are also camel case.</p>
-</li>
-<li>
-<p>Function names, apart from constructors, are all lowercase.   Include underscores between words only if the name would be hard   to read without.   E.g.  <code>start</code>, <code>stop</code>, <code>findletter</code> <code>find_last_digit</code>.</p>
-</li>
-<li>
-<p>Generally try to keep lines below 80-columns, unless splitting a long line   onto multiple lines makes it harder to read.</p>
-</li>
-<li>
-<p>Files that declare modules should only declare the module, and import any   modules that it requires. Any code should be included from separate files.   E.g.</p>
-</li>
+<li>Source code files should have the following style of header:</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="k">module</span> <span class="n">AwesomeFeatures</span>
+<div class="codehilite"><pre><span></span>  <span class="c"># Title</span>
+  <span class="c"># =====</span>
+  <span class="c">#</span>
+  <span class="c"># Short description.</span>
+  <span class="c">#</span>
+  <span class="c"># [Long description (optional)]</span>
+  <span class="c">#</span>
+  <span class="c"># This file is a part of BioJulia. License is MIT: &lt;link to the license file&gt;</span>
+  <span class="sb">```</span>
 
-<span class="k">using</span> <span class="n">IntervalsTrees</span><span class="p">,</span> <span class="n">JSON</span>
+<span class="sb">* Indent with 4 spaces.</span>
 
-<span class="n">include</span><span class="p">(</span><span class="s">&quot;feature1.jl&quot;</span><span class="p">)</span>
-<span class="n">include</span><span class="p">(</span><span class="s">&quot;feature2.jl&quot;</span><span class="p">)</span>
+<span class="sb">* When returning values from a function, use an explicit `</span><span class="k">return</span><span class="sb">` statement. Be aware that functions in julia return the</span>
+<span class="sb">  the result of the last statement in the function.</span>
 
-<span class="k">end</span>
+<span class="sb">* Type names are camel case, with the first letter capitalized. E.g. `</span><span class="n">SomeVeryUsefulType</span><span class="sb">`.</span>
+
+<span class="sb">* Module names are also camel case.</span>
+
+<span class="sb">* Function names, apart from constructors, are all lowercase.</span>
+<span class="sb">  Include underscores between words only if the name would be hard</span>
+<span class="sb">  to read without.</span>
+<span class="sb">  E.g.  `</span><span class="n">start</span><span class="sb">`, `</span><span class="n">stop</span><span class="sb">`, `</span><span class="n">findletter</span><span class="sb">` `</span><span class="n">find_last_digit</span><span class="sb">`.</span>
+
+<span class="sb">* Generally try to keep lines below 80-columns, unless splitting a long line</span>
+<span class="sb">  onto multiple lines makes it harder to read.</span>
+
+<span class="sb">* Files that declare modules should only declare the module, and import any</span>
+<span class="sb">  modules that it requires. Any code should be included from separate files.</span>
+<span class="sb">  E.g.</span>
 </pre></div>
 
 
-<ul>
-<li>
-<p>Files that declare modules should have the same name name of the module.   E.g the module <code>SomeModule</code> is declared under the file <code>SomeModule.jl</code>.</p>
-</li>
-<li>
-<p>Separate logical blocks of code with one blank line,   or two blank lines for function/type definitions.</p>
-</li>
-<li>
-<p>When extending method definitions, define the methods with a module name prefix. E.g.</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="k">function</span> <span class="n">Base</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="n">iter</span><span class="o">::</span><span class="n">YourType</span><span class="p">)</span>
-  <span class="o">...</span>
-<span class="k">end</span>
+<p>julia module AwesomeFeatures</p>
+<p>using IntervalsTrees, JSON</p>
+<p>include("feature1.jl") include("feature2.jl")</p>
+<p>end</p>
+<div class="codehilite"><pre><span></span>* Files that declare modules should have the same name name of the module.
+  E.g the module `SomeModule` is declared under the file `SomeModule.jl`.
 
-<span class="n">Base</span><span class="o">.</span><span class="n">done</span><span class="p">(</span><span class="n">iter</span><span class="o">::</span><span class="n">YourType</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span>
+* Separate logical blocks of code with one blank line,
+  or two blank lines for function/type definitions.
+
+* When extending method definitions, define the methods with a module name prefix. E.g.
 </pre></div>
 
 
-<ul>
-<li>Document functions using bare docstrings before a definition:</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="s">&quot;This function foo&#39;s something&quot;</span>
-<span class="n">foo</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<p>julia function Base.start(iter::YourType)   ... end</p>
+<p>Base.done(iter::YourType, state) = ...</p>
+<div class="codehilite"><pre><span></span>* Document functions using bare docstrings before a definition:
 </pre></div>
 
 
-<ul>
-<li>Functions that get or set variables in a type should not be   prefixed with 'get' or 'set'.   The getter should be named for the variable it sets, and the setter   should have the same name as the getter, with the suffix <code>!</code>.   For example, for the variable <code>names</code>:</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="n">name</span><span class="p">(</span><span class="n">node</span><span class="p">)</span> <span class="c"># get node name</span>
-<span class="n">name!</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="s">&quot;somename&quot;</span><span class="p">)</span> <span class="c"># set node name</span>
+<p>julia "This function foo's something" foo(x) = 2 * x</p>
+<div class="codehilite"><pre><span></span>* Functions that get or set variables in a struct should not be
+  prefixed with &#39;get&#39; or &#39;set&#39;.
+  The getter should be named for the variable it gets, and the setter
+  should have the same name as the getter, with the suffix `!`.
+  For example, for the variable `names`:
 </pre></div>
 
 
-<ul>
-<li>When using conditional branching, if code is statement-like, an   if-else block should be used. However if the code is expression-like   then julia's ternary operator should be used.</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="n">matches</span> <span class="o">==</span> <span class="n">sketchlen</span> <span class="o">?</span> <span class="p">(</span><span class="k">return</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">:</span> <span class="k">return</span> <span class="n">matches</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sketchlen</span> <span class="o">-</span> <span class="n">matches</span><span class="p">)</span>
-
-<span class="c">#The above code is more statement-like, with two return statements</span>
-<span class="c">#and so is more readable as a if-else block:</span>
-
-<span class="k">if</span> <span class="n">matches</span> <span class="o">==</span> <span class="n">sketchlin</span>
-    <span class="k">return</span> <span class="mf">1.0</span>
-<span class="k">else</span>
-    <span class="k">return</span> <span class="n">matches</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sketchlen</span> <span class="o">-</span> <span class="n">matches</span><span class="p">)</span>
-<span class="k">end</span>
-
-<span class="c">#However,</span>
-
-<span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="o">?</span> <span class="sc">&#39;|&#39;</span> <span class="o">:</span> <span class="sc">&#39; &#39;</span>
-
-<span class="c">#Returns one of two expression values; it is more expression-like</span>
-<span class="c">#and so using a ternary operator is perfectly readable, and is</span>
-<span class="c">#aceptable in BioJulia code.</span>
+<p>julia name(node) # get node name name!(node, "somename") # set node name</p>
+<div class="codehilite"><pre><span></span>* When using conditional branching, if code is statement-like, an
+  if-else block should be used. However if the code is expression-like
+  then julia&#39;s ternary operator should be used.
 </pre></div>
+
+
+<p>julia matches == sketchlen ? (return 1.0) : return matches / (2 * sketchlen - matches)</p>
+<h1 id="the-above-code-is-more-statement-like-with-two-return-statements-and-so-is-more-readable-as-a-if-else-block">The above code is more statement-like, with two return statements #and so is more readable as a if-else block:</h1>
+<p>if matches == sketchlin     return 1.0 else     return matches / (2 * sketchlen - matches) end</p>
+<h1 id="however">However,</h1>
+<p>x == y ? '|' : ' '</p>
+<h1 id="returns-one-of-two-expression-values-it-is-more-expression-like-and-so-using-a-ternary-operator-is-perfectly-readable-and-is-aceptable-in-biojulia-code">Returns one of two expression values; it is more expression-like #and so using a ternary operator is perfectly readable, and is #aceptable in BioJulia code. ```</h1>
                 
                   
                 
@@ -578,7 +525,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-ad1183cb07.js"></script>
+      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
