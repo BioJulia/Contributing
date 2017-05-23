@@ -23,6 +23,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://biojulia.github.io/Contributing//help/branching_guide/</loc>
+     <lastmod>2017-05-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
