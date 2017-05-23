@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.1">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.3">
     
     
       
@@ -28,7 +28,7 @@
       <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-4d0d3f2fbf.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-e2807e330f.css">
       
     
     
@@ -209,11 +209,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
-      Contribution Guides (How to...)
+      How do I....?
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-2">
-        Contribution Guides (How to...)
+        How do I....?
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -224,7 +224,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../package_submission/" title="Contribute packages" class="md-nav__link">
+    <a href="../../help/package_submission/" title="Contribute packages" class="md-nav__link">
       Contribute packages
     </a>
   </li>
@@ -236,7 +236,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../join_biojulia/" title="Join the BioJulia GitHub organisation" class="md-nav__link">
+    <a href="../../help/join_biojulia/" title="Join the BioJulia GitHub organisation" class="md-nav__link">
       Join the BioJulia GitHub organisation
     </a>
   </li>
@@ -330,9 +330,70 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Package Requirements
+      </label>
+    
     <a href="./" title="Package Requirements" class="md-nav__link md-nav__link--active">
       Package Requirements
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" title="Documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docstrings" title="Docstrings" class="md-nav__link">
+    Docstrings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documenterjl-generated-manuals-and-documentation" title="Documenter.jl generated manuals and documentation" class="md-nav__link">
+    Documenter.jl generated manuals and documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" title="Tests" class="md-nav__link">
+    Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-compatibility" title="Version compatibility" class="md-nav__link">
+    Version compatibility
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -383,6 +444,54 @@
     
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" title="Documentation" class="md-nav__link">
+    Documentation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docstrings" title="Docstrings" class="md-nav__link">
+    Docstrings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documenterjl-generated-manuals-and-documentation" title="Documenter.jl generated manuals and documentation" class="md-nav__link">
+    Documenter.jl generated manuals and documentation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tests" title="Tests" class="md-nav__link">
+    Tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-compatibility" title="Version compatibility" class="md-nav__link">
+    Version compatibility
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -398,28 +507,27 @@
                 
                 <p><a id='BioJulia-package-guidelines-1'></a></p>
 <h1 id="biojulia-package-guidelines">BioJulia package guidelines</h1>
-<p>All code in all packages in the BioJulia ecosystem should follow the BioJulia <a href="../../code_style">code style</a> guide. </p>
-<p>We enforce the following requirements in our packages.</p>
-<ol>
-<li>Types and functions must be documented using Julia's <a href="http://docs.julialang.org/en/latest/manual/documentation/">docstrings</a>.    Documentation regarding specific implementation details that aren't relevant    to users should be in the form of comments.</li>
-</ol>
-<p>Documentation may be omitted if the function is not exported    (i.e. only used internally) and is short and obvious. E.g. <code>cube(x) = x^3</code>.</p>
-<p>However, please consider that what may be obvious to you as the write of the    code, may not be obvious to others. Therefore, we do recommend documenting    as much as possible, to help out fellow julia coders and biologists    when they are reading and understanding the code. We are trying to    make BioJulia packages as easy as possible to use, understand, and code    on for everyone :)</p>
-<ol>
-<li>In addition to documenting code in the source files through docstrings,    we encourage contributers to create documentation which is more akin to    a manual, complete with comprehensive explanations and examples of how    to use the package.</li>
-</ol>
-<p>We use Documenter.jl and mkdocs, to generate such documentation    and host it on the web.    The source markdown files for such manuals are kept in the <code>docs/src/man</code>    folder of each BioJulia package/repository.</p>
-<ol>
-<li>
-<p>All significant code must be tested.    Tests should be organized into contexts, and into separate files based on    module.    Files for tests for a module go into an appropriately named    folder, within the <code>test</code> folder in the Bio.jl git repo. E.g. tests    for the Seq module of Bio.jl go in the <code>test/seq</code> folder of the Bio.jl    package.</p>
-</li>
-<li>
-<p>All code contributed should be compatible with the latest stable version of    Julia.</p>
-</li>
-<li>
-<p>If your contribution to a BioJulia package introduces a method which is    shared among submodules, they should be declared in the top level module,    and then extended by the submodules. For example, in Bio.jl, the method    <code>seqname</code> was defined in <code>Bio.Seq</code> and overloaded by <code>Bio.Intervals</code>    and <code>Bio.Align</code>. Therefore the declaration of the method was moved to <code>Bio</code>,    and the three submodules extend the declared method.</p>
-</li>
-</ol>
+<p>All code in all packages in the BioJulia ecosystem should follow the BioJulia <a href="../../code_style">code style</a> guide.</p>
+<p><a id='Documentation-1'></a></p>
+<h2 id="documentation">Documentation</h2>
+<p><a id='Docstrings-1'></a></p>
+<h3 id="docstrings">Docstrings</h3>
+<p>Types and functions must be documented using Julia's <a href="http://docs.julialang.org/en/latest/manual/documentation/">docstrings</a>.</p>
+<p>Documentation regarding specific implementation details that aren't relevant to users should be in the form of comments.</p>
+<p>Documentation may be omitted if the function is not exported (i.e. only used internally) and is short and obvious. E.g. <code>cube(x) = x^3</code>.</p>
+<p>However, please consider that what may be obvious to you as the write of the code, may not be obvious to others. Therefore, we do recommend documenting as much as possible, to help out fellow julia coders and biologists when they are reading and understanding the code. We are trying to make BioJulia packages as easy as possible to use, understand, and code with for everyone :)</p>
+<p><a id='Documenter.jl-generated-manuals-and-documentation-1'></a></p>
+<h3 id="documenterjl-generated-manuals-and-documentation">Documenter.jl generated manuals and documentation</h3>
+<p>In addition to documenting code in the source files through docstrings, we encourage contributers to create documentation which is more akin to a manual, complete with comprehensive explanations and examples of how to use the package.</p>
+<p>We use Documenter.jl and mkdocs, to generate such documentation and host it on the web. The source markdown files for such manuals are kept in the <code>docs/src/man</code> folder of each BioJulia package/repository.</p>
+<p><a id='Tests-1'></a></p>
+<h2 id="tests">Tests</h2>
+<p>All significant code must be tested. Tests should be organized into contexts, and into separate files based on module.</p>
+<p>Files for tests for a module go into an appropriately named folder, within the <code>test</code> folder in the git repo.</p>
+<p><a id='Version-compatibility-1'></a></p>
+<h2 id="version-compatibility">Version compatibility</h2>
+<p>All code contributed should be compatible with the latest stable version of Julia.</p>
+<p>If your contribution to a BioJulia package introduces a method which is shared among submodules, they should be declared in the top level module, and then extended by the submodules. For example, in Bio.jl, the method <code>seqname</code> was defined in <code>Bio.Seq</code> and overloaded by <code>Bio.Intervals</code> and <code>Bio.Align</code>. Therefore the declaration of the method was moved to <code>Bio</code>, and the three submodules extend the declared method.</p>
                 
                   
                 
@@ -493,7 +601,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-6b599127bc.js"></script>
+      <script src="../../assets/javascripts/application-6b4ff16fa7.js"></script>
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
