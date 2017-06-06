@@ -17,7 +17,7 @@
       
         <link rel="shortcut icon" href="../../assets/images/favicon.png">
       
-      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.6.3">
+      <meta name="generator" content="mkdocs-0.16.3, mkdocs-material-1.7.1">
     
     
       
@@ -25,10 +25,10 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+      <script src="../../assets/javascripts/modernizr-1df76c4e58.js"></script>
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application-e2807e330f.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application-f98ca285f9.css">
       
     
     
@@ -104,7 +104,7 @@
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="">
           <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
             Type to start searching
           </div>
@@ -522,24 +522,51 @@
 <p>Use temporary branches for features, releases, and bug-fixes. These temporary branches are used as a convenience to share code with other developers and as a backup measure. They are always removed once the changes present on them are added to master.</p>
 </li>
 <li>
-<p>Features are integrated onto the master branch primarily in a way which keeps the history linear and simple. This is made easy since GitHub now allows you to <a href="https://github.com/blog/2243-rebase-and-merge-pull-requests">rebase and merge</a> pull requests (But you have a lot of choice here, you could do rebases, you could use merge commits, and you could do some hybrid approach between the two).</p>
+<p>Features are integrated onto the master branch primarily in a way which keeps the history linear and simple. A good compromise to the rebase vs. merge commit debate for this step is to first do an interactive rebase of the feature branch on master, and then do a non-fast-forward merge.</p>
 </li>
 </ol>
+<p><em>Feature Example:</em></p>
+<div class="codehilite"><pre><span></span>git checkout -b feature/my-feature master
+
+... Make commits to feature/my-feature to finish the feature ...
+
+git rebase -i master
+git checkout master
+git merge --no-ff feature/my-feature
+git push origin master
+git branch -d feature/my-feature
+</pre></div>
+
+
 <p><a id='Making-releases-1'></a></p>
 <h3 id="making-releases">Making releases</h3>
 <ol>
 <li>
-<p>You create a new branch for a new release. It branches off from <code>master</code> at the point that you decided <code>master</code> has all the necessary features.</p>
+<p>You create a new branch for a new release. It branches off from <code>master</code> at the point that you decided <code>master</code> has all the necessary features. This is not necessarily the tip of the <code>master</code> branch.</p>
 </li>
 <li>
 <p>From then on new work, aimed for the <em>next</em> release, is pushed to <code>master</code> as always, and any necessary changes for the <em>current</em> release are pushed to the release branch. Once the release is ready, you tag the top of the release branch.</p>
 </li>
 <li>
-<p>Once the release is ready, tag the top of the release branch with a version number. Then merge the release branch into <code>master</code> and push that changed <code>master</code>. Any changes that were made during the release will now be part of <code>master</code>. Delete the release branch.</p>
+<p>Once the release is ready, tag the top of the release branch with a version number. Then do a typical merge of the release branch into <code>master</code>. Any changes that were made during the release will now be part of <code>master</code>. Delete the release branch.</p>
 </li>
-<li>
-<p>Do you pushes, and got to GitHub to make your release available.</p>
-</li>
+</ol>
+<p><em>Release Example:</em></p>
+<div class="codehilite"><pre><span></span>git checkout -b release/2.3.0 9efc5d
+
+... Make commits to release/2.3.0 to finish the release ...
+
+git tag <span class="m">2</span>.3.0
+git checkout master
+git merge release/2.3.0
+git push --tags origin master
+git branch -d release/2.3.0
+git push origin :release/2.3.0
+</pre></div>
+
+
+<ol>
+<li>Do your pushes, and go to GitHub to make your release available.</li>
 </ol>
 <p><a id='Hot-fixes-1'></a></p>
 <h3 id="hot-fixes">Hot-fixes</h3>
@@ -554,6 +581,20 @@
 <p>When the fix is ready, tag the top of the fix branch with a new release, merge it into master, finally delete the hot-fix branch.</p>
 </li>
 </ol>
+<p><em>Hot-fix example:</em></p>
+<div class="codehilite"><pre><span></span>git checkout -b hotfix/2.3.1 <span class="m">2</span>.3.0
+
+... Add commits which fix the problem ...
+
+git tag <span class="m">2</span>.3.1
+git checkout master
+git merge hotfix/2.3.1
+git push --tags origin master
+git branch -d hotfix/2.3.1
+</pre></div>
+
+
+<p><strong>IMPORTANT:</strong> There is one special case when finishing a hot-fix branch. If a release branch has already been cut in preparation for the next release before the hot-fix was finished, you need to merge the hot-fix branch not to master, but to that release branch.</p>
                 
                   
                 
@@ -627,7 +668,9 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application-6b4ff16fa7.js"></script>
+      <script src="../../assets/javascripts/application-e3caa82af6.js"></script>
+      
+      
       <script>app.initialize({url:{base:"../.."}})</script>
       
         <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
