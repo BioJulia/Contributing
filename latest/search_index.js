@@ -33,6 +33,78 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
+    "location": "index.html#Package-specific-contribution-rules-1",
+    "page": "Home",
+    "title": "Package specific contribution rules",
+    "category": "section",
+    "text": "As explained in the Organization of the BioJulia community section, the structure of the BioJulia is not strictly centralized: different BioJulia people maintain different packages. So in addition to being familiar with the BioJulia Contribution guidelines presented in this manual,   it's also a good idea check out the online documentation for packages you use and/or contribute to, and see if there are additional contributing rules or guidelines."
+},
+
+{
+    "location": "help/pull_requests.html#",
+    "page": "Make a pull-request (PR)",
+    "title": "Make a pull-request (PR)",
+    "category": "page",
+    "text": ""
+},
+
+{
+    "location": "help/pull_requests.html#pull_requests-1",
+    "page": "Make a pull-request (PR)",
+    "title": "How do I contribute by making a pull request?",
+    "category": "section",
+    "text": "So you've found a package in BioJulia that you have used and like, and have decided you want to correct or add something? Great! You've come to the right place! :)You can contribute to the code and documentation of an existing BioJulia software project by forking the code repository on github, and making a pull request."
+},
+
+{
+    "location": "help/pull_requests.html#Get-an-account-on-Github-1",
+    "page": "Make a pull-request (PR)",
+    "title": "Get an account on Github",
+    "category": "section",
+    "text": "The first thing you should do is make yourself an account on Github. The chances are you already have one if you've done coding before and wanted to make any scripts or software from a science project public."
+},
+
+{
+    "location": "help/pull_requests.html#Make-your-own-fork-of-the-package-1",
+    "page": "Make a pull-request (PR)",
+    "title": "Make your own fork of the package",
+    "category": "section",
+    "text": "The first step to contributing is to find the BioJulia repository for the package. Hit the 'Fork' button on the repositories page to create a forked copy of the package for your own Github account. This is your blank slate to work on, and will ensure your work and experiments won't hinder other users of the released and stable package.From there you can download your fork of the package and work on it on your machine using git.Here's an example, assuming you forked the BioJulia package \"BioSequences.jl\", using the git command in a terminal:git clone https://github.com/<YOUR_GITHUB_USERNAME_HERE>/BioSequences.jl.gitGit will download or \"clone\" your fork and put it in a folder called BioSequences.jl it creates in your current directory."
+},
+
+{
+    "location": "help/pull_requests.html#Make-changes-on-your-fork-of-the-package-1",
+    "page": "Make a pull-request (PR)",
+    "title": "Make changes on your fork of the package",
+    "category": "section",
+    "text": "Make changes on your package by doing the following with git.First, you need to check-out a branch.If you are unfamiliar with branching, branching is the way to work on different versions of a repository at one time, with git. By default most code repositories have one branch named \"master\". \"master\" is considered to be the definitive branch. We use branches to experiment and make edits before committing them to \"master\".Let's see an example, if I wanted to create some new awesome feature for BioSequences.jl, I might call this branch that I will work on \"awesome-feature\":cd BioSequences.jl\ngit checkout -b awesome-featureOk, assume now we opened up some files in BioJulia, and I have edited them. We also added some new files as well! Now what do we do?Well one of the first things is to add the new files using git, so as git will track them. For example, let's assume our file is called new-awesome.jl, and is located in the \"src\" folder, which is inside the \"BioSequences.jl\" folder.git add src/new-awesome.jlOk, since the files we edited were already in \"BioSequences.jl\", let us assume git is already tracking them.We now have to commit the new file we've added, as well as the changes to the files we edited.This is done with git:git commit -am\"Added a new awesome feature\"Here the flags -a and -m mean to commit all changes ('a'), and to add the message ('m') which explains what the new commit is."
+},
+
+{
+    "location": "help/pull_requests.html#Push-your-changes-to-your-fork-1",
+    "page": "Make a pull-request (PR)",
+    "title": "Push your changes to your fork",
+    "category": "section",
+    "text": "Ok, with that done, we want to push our new changes up to our fork on our Github account:git push origin awesome-featureNow if we went to the Github site and looked at the page for our BioSequences.jl fork, it would also have the awesome-feature branch."
+},
+
+{
+    "location": "help/pull_requests.html#Make-the-pull-request-to-BioJulia's-copy-of-BioSequences.jl-1",
+    "page": "Make a pull-request (PR)",
+    "title": "Make the pull request to BioJulia's copy of BioSequences.jl",
+    "category": "section",
+    "text": "Now all that's left is to make a \"pull request\" to merge the changes that have been made on the \"awesome-feature\" branch, into the \"master\" branch, of BioJulia's official BioSequences.jl repository.The best guide on how to make a pull request is probably offered by Github themselves here.We can continue to add change commits to \"awesome-feature\" and push them up to our BioSequences.jl fork, and they will appear in the pull request to merge \"awesome-feature\" into BioJulia's BioSequences.jl \"master\" branch.  "
+},
+
+{
+    "location": "help/pull_requests.html#The-BioJulia-Pull-Request-review-1",
+    "page": "Make a pull-request (PR)",
+    "title": "The BioJulia Pull Request review",
+    "category": "section",
+    "text": "Other members of the BioJulia organisation, will review the code and documentation in the pull request, and will assess it according to the BioJulia code and package guidelines.Your pull request will be accepted and merged if:The dedicated package maintainers approve the pull request for merging.\nThe automated build system confirms that all unit tests pass without any issues.There may be package-specific requirements or guidelines for contributors with some of BioJulia's packages. Most of the time there will not be, but it is a good idea to check the site of the specific BioJulia package e.g. (https://biojulia.net/BioSequences.jl) to make sure."
+},
+
+{
     "location": "help/package_submission.html#",
     "page": "Contribute packages",
     "title": "Contribute packages",
@@ -73,9 +145,9 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "help/branching_guide.html#Choosing-and-using-a-brannching-moded-for-a-repo-1",
+    "location": "help/branching_guide.html#Choosing-and-using-a-branching-model-for-a-repo-1",
     "page": "Choose a branching model",
-    "title": "Choosing and using a brannching moded for a repo",
+    "title": "Choosing and using a branching model for a repo",
     "category": "section",
     "text": "If you are a dedicated maintainer on a BioJulia package, you may be wondering which branching model to choose for development and maintenance of your code.If you are a contributor, knowing the branching model of a package may help you work more smoothly with the maintainer of the package.There are several options available, including git-flow.Below is a BioJulia recommended branching model for your repo, but it is only a suggestion. What is best for you as the dedicated maintainer, is best for _you_.The model below is a brief summary of the 'OneFlow model'. We describe it in summary here for convenience, but we recommend you check out the blog article as a lot more justification and reasoning is presented on _why_ this model is the way it is."
 },
@@ -121,17 +193,17 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "policy/biojulia_organisation.html#Organization-of-the-BioJulia-community.-1",
+    "location": "policy/biojulia_organisation.html#community_structure-1",
     "page": "Community Organisation",
-    "title": "Organization of the BioJulia community.",
+    "title": "Organization of the BioJulia community",
     "category": "section",
     "text": "In order to provide the best possible experience for new and existing users of Julia from the life-sciences. A little bit of structure and organization is necessary."
 },
 
 {
-    "location": "policy/biojulia_organisation.html#The-package-ecosystem-and-Maintainers.-1",
+    "location": "policy/biojulia_organisation.html#The-package-ecosystem-and-Maintainers-1",
     "page": "Community Organisation",
-    "title": "The package ecosystem and Maintainers.",
+    "title": "The package ecosystem and Maintainers",
     "category": "section",
     "text": "The BioJulia software ecosystem, around which the BioJulia community is based, consists of a growing number of individual packages.Each package is dedicated to introducing a specific data type or algorithm, or dealing with a specific biological problem or pipeline.Whilst there are some \"meta-packages\" such as Bio.jl, which bundle individual packages together for convenience of installation and use, most of the BioJulia software ecosystem is quite decentralized.Therefore, it made sense that maintainership of the packages should also be fairly decentralized, to achieve this, we created the role of a \"Dedicated Maintainer\", and have a Maintainers team."
 },
@@ -358,38 +430,6 @@ var documenterSearchIndex = {"docs": [
     "title": "Version compatibility",
     "category": "section",
     "text": "All code contributed should be compatible with the latest stable version of Julia.If your contribution to a BioJulia package introduces a method which is shared among submodules, they should be declared in the top level module, and then extended by the submodules. For example, in Bio.jl, the method seqname was defined in Bio.Seq and overloaded by Bio.Intervals and Bio.Align. Therefore the declaration of the method was moved to Bio, and the three submodules extend the declared method."
-},
-
-{
-    "location": "policy/pull_requests.html#",
-    "page": "Pull Requests",
-    "title": "Pull Requests",
-    "category": "page",
-    "text": ""
-},
-
-{
-    "location": "policy/pull_requests.html#Contribute-by-pull-requests-1",
-    "page": "Pull Requests",
-    "title": "Contribute by pull requests",
-    "category": "section",
-    "text": "Conributions of code and documentation to existing BioJulia repositories take the form of pull requests (PR's).Before you start to work on your fix or addition to a BioJulia repository we recommend that you make your pull request early. This allows better collaboration with others, exchange of ideas, more code contributions from others (taking the pressure off you!), and better overall code as a result.The first thing all developers should do when making a PR is create themselves a fork of the BioJulia repository they want to contribute to, and then create a branch on that fork for the PR. This keeps the number of branches on the BioJulia repositories manageable and limited to release branches, and branches for major milestones involving work from many contributors. All developers, even those with push and pull access to BioJulia repositories, should follow this guidance."
-},
-
-{
-    "location": "policy/pull_requests.html#The-BioJulia-Pull-Request-lifecycle-1",
-    "page": "Pull Requests",
-    "title": "The BioJulia Pull Request lifecycle",
-    "category": "section",
-    "text": "Pull Requests on BioJulia repositories go through several stages, and these stages are indicated by the following labels. Please use these labels to help let others know how far your are along with your work.stage: planing: You're planning. Figuring out the best way to code something or discussing ideas.\nstage: WIP: You're coding or writing, actively working on it.\nstage: RTR: You're finished, and want others to review the work and see if it is ready to be accepted and merged into BioJulia."
-},
-
-{
-    "location": "policy/pull_requests.html#The-BioJulia-Pull-Request-review-1",
-    "page": "Pull Requests",
-    "title": "The BioJulia Pull Request review",
-    "category": "section",
-    "text": "Once the pull request enters the RTR (ready to review) stage, other members of the BioJulia organisation, will review the code and documentation in the pull request, and will assess it according to the BioJulia code and package guidelines.Your pull request will be accepted and merged if:Two reviewers subsequently recommend the pull request for merging.\nThe automated build system confirms that all unit tests pass without failiure."
 },
 
 {
