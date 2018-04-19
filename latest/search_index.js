@@ -341,7 +341,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Changelog",
     "title": "Added",
     "category": "section",
-    "text": "A new CHANGELOG file.\nAn example CHANGELOG file for all BioJulia projects.\nAn enhancement proposal GitHub issue template.\nA bug report GitHub issue template.\nA file with a statement on etiquette and conduct."
+    "text": "A new CHANGELOG file.\nAn example CHANGELOG file for all BioJulia projects.\nAn enhancement proposal GitHub issue template.\nA bug report GitHub issue template.\nA pull request template.\nA file with a statement on etiquette and conduct."
 },
 
 {
